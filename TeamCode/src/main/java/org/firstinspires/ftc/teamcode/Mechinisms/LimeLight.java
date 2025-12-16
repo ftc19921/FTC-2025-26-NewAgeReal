@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-public class LimeLight {
+/*public class LimeLight {
     Limelight3A limelight3A;
     public void init(HardwareMap hardwareMap){
         limelight3A = hardwareMap.get(Limelight3A.class,"LimeLight");
@@ -31,4 +31,4 @@ public class LimeLight {
             return(-1);
         }
     }
-}
+}*/
