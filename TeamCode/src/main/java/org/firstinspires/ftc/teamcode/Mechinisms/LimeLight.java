@@ -5,7 +5,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-/*public class LimeLight {
+public class LimeLight {
+    /*
     Limelight3A limelight3A;
     public void init(HardwareMap hardwareMap){
         limelight3A = hardwareMap.get(Limelight3A.class,"LimeLight");
@@ -25,10 +26,10 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
         return(limelight3A.getLatestResult().getTa());
     }
     public double detectID(){
-        if(limelight3A.getLatestResult().getDetectorResults().size()>0) {
+        if(!limelight3A.getLatestResult().getDetectorResults().isEmpty()) {
             return (limelight3A.getLatestResult().getDetectorResults().get(0).getClassId());
         }else{
             return(-1);
         }
-    }
-}*/
+    }*/
+}

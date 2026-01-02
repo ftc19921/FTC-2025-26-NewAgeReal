@@ -57,15 +57,15 @@ public class TeleOp2 extends OpMode {
 
         if(gamepad2.dpad_up&&gamepad2.y){
             if(gamepad2.b){
-            robot.stilts.ascend(1);
+            robot.stilts.ascend(0.5);
             }
             else{
-                robot.stilts.ascend(-1);
+                robot.stilts.ascend(-0.5);
             }
-        }
-        if(gamepad2.x){
+        }else{
             robot.stilts.stop();
         }
+
 
         telemetry.addData("Shooter Power: %",power*10);
 

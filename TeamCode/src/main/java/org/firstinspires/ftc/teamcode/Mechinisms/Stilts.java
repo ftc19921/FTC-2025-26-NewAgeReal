@@ -13,7 +13,7 @@ public class Stilts {
         StiltRight = hardwareMap.get(DcMotor.class,"ex2");
     }
 
-    public void ascend(int power){
+    public void ascend(double power){
         StiltLeft.setPower(power);
         StiltRight.setPower(-power);
     }
