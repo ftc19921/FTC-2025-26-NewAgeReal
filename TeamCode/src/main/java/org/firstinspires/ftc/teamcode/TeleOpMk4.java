@@ -2,10 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.Mechinisms.Shooter;
-
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp
-public class TeleOp2 extends OpMode {
+public class TeleOpMk4 extends OpMode {
     Robot robot = new Robot();
     double power;
     boolean leftPressed;
@@ -15,6 +13,7 @@ public class TeleOp2 extends OpMode {
         robot.init(hardwareMap);
         leftPressed = false;
         rightPressed = false;
+        power =1;
     }
 
     @Override
@@ -38,7 +37,7 @@ public class TeleOp2 extends OpMode {
             leftPressed = false;
         }
         if(gamepad2.a){
-            robot.shooters.spinUpShooter(-1);
+            robot.shooters.spinUpShooter(-(power/10));
         }else{
             robot.shooters.spinDown();
         }
@@ -49,6 +48,8 @@ public class TeleOp2 extends OpMode {
         }
         if(gamepad1.right_trigger>0){
             robot.shooters.intake();
+        }else if (gamepad1.left_trigger>0){
+           robot.shooters.outtake();
         }else{
             robot.shooters.stopIntaking();
         }
@@ -57,15 +58,15 @@ public class TeleOp2 extends OpMode {
 
         if(gamepad2.dpad_up&&gamepad2.y){
             if(gamepad2.b){
-            robot.stilts.ascend(1);
+            robot.stilts.ascend(0.5);
             }
             else{
-                robot.stilts.ascend(-1);
+                robot.stilts.ascend(-0.5);
             }
-        }
-        if(gamepad2.x){
+        }else{
             robot.stilts.stop();
         }
+
 
         telemetry.addData("Shooter Power: %",power*10);
 
