@@ -35,7 +35,7 @@ public class AutoScore extends OpMode {
         distanceToTarget = getDistanceFromPercent(percentScreenOfTarget);
         telemetry.addData("Distance to target: ",distanceToTarget);
         fireThisMany(1,0.5);
-
+        fireThisMany(2,1);
     }
 
     public void MoveDistanceAwayFromTarget(double Power,double Distance /*in Inches*/){

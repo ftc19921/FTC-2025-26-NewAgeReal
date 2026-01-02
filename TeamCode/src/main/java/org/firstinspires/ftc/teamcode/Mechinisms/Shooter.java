@@ -28,6 +28,10 @@ public class Shooter {
     public void intake(){
         intakeMotor.setPower(1);
     }
+
+    public void outtake(){
+        intakeMotor.setPower(-1);
+    }
     public void fire(){
         actuatorMotor.setPower(-1);
     }
