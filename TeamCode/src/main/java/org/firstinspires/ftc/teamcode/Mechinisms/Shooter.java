@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.Mechinisms;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Shooter {
@@ -29,7 +28,7 @@ public class Shooter {
         intakeMotor.setPower(1);
     }
 
-    public void outake(){intakeMotor.setPower(-1);}
+    public void outtake(){intakeMotor.setPower(-1);}
     public void fire(){
         actuatorMotor.setPower(-1);
     }

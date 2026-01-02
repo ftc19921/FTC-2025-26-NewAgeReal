@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp
-public class TeleOpMk3 extends OpMode {
+public class TeleOpMk4 extends OpMode {
     Robot robot = new Robot();
     double power;
     boolean leftPressed;
@@ -37,7 +37,7 @@ public class TeleOpMk3 extends OpMode {
             leftPressed = false;
         }
         if(gamepad2.a){
-            robot.shooters.spinUpShooter(-power);
+            robot.shooters.spinUpShooter(-(power/10));
         }else{
             robot.shooters.spinDown();
         }
@@ -49,7 +49,7 @@ public class TeleOpMk3 extends OpMode {
         if(gamepad1.right_trigger>0){
             robot.shooters.intake();
         }else if (gamepad1.left_trigger>0){
-           robot.shooters.outake();
+           robot.shooters.outtake();
         }else{
             robot.shooters.stopIntaking();
         }
