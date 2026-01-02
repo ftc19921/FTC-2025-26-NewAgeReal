@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.Robot;
 
-public class AutoScore  {
-    /*
+public class AutoScore extends OpMode {
+
     double percentScreenOfTarget;
     //(In inches)
     double distanceToTarget;
@@ -42,5 +42,5 @@ public class AutoScore  {
     }
 }
 
- */
-}
+
+
