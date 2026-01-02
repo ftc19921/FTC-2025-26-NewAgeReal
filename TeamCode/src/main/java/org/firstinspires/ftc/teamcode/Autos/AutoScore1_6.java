@@ -1,17 +1,11 @@
 package org.firstinspires.ftc.teamcode.Autos;
 
-import static java.lang.System.nanoTime;
-
-import android.telephony.SmsManager;
-
-import com.qualcomm.hardware.limelightvision.Limelight3A;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.Mechinisms.Shooter;
-import org.firstinspires.ftc.teamcode.Mechinisms.TankDrive;
 import org.firstinspires.ftc.teamcode.Robot;
-
-public class AutoScore extends OpMode {
+@Autonomous
+public class AutoScore1_6 extends OpMode {
     boolean end;
     double percentScreenOfTarget;
     //(In inches)
@@ -34,8 +28,9 @@ public class AutoScore extends OpMode {
         percentScreenOfTarget = robot.limeLight.LookTa();
         distanceToTarget = getDistanceFromPercent(percentScreenOfTarget);
         telemetry.addData("Distance to target: ",distanceToTarget);
-        fireThisMany(1,0.5);
-        fireThisMany(2,1);
+        telemetry.update();
+        //fireThisMany(2,0.5);
+        //fireThisMany(2,1);
     }
 
     public void MoveDistanceAwayFromTarget(double Power,double Distance /*in Inches*/){
@@ -59,9 +54,9 @@ public class AutoScore extends OpMode {
     public void fireThisMany(double ArtifactsToFire, double power){
         while(ArtifactsToFire>0){
             robot.shooters.spinUpShooter(power);
-            waitToSpin(2);
+            waitToSpin(100000);
             robot.shooters.fire();
-            waitToSpin(2);
+            waitToSpin(100000);
             robot.shooters.spinUpShooter(0);
             ArtifactsToFire--;
         }
@@ -78,7 +73,7 @@ public class AutoScore extends OpMode {
     }
 
     public void waitToSpin(double Time){
-        Time=Time*System.nanoTime()*1000000000;
+
         while(Time>0){
             Time--;
         }
