@@ -49,6 +49,8 @@ public class TeleOp2 extends OpMode {
         }
         if(gamepad1.right_trigger>0){
             robot.shooters.intake();
+        }else if (gamepad1.left_trigger>0){
+           robot.shooters.outake();
         }else{
             robot.shooters.stopIntaking();
         }
