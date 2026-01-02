@@ -26,6 +26,7 @@ public class AutoScore extends OpMode {
     public void loop() {
         percentScreenOfTarget = robot.limeLight.LookTa();
         distanceToTarget = getDistanceFromPercent(percentScreenOfTarget);
+        telemetry.addData("Distance to target: ",distanceToTarget);
     }
     public double getDistanceFromPercent(double Percent){
         //screenArea = distanceToTarget*(distanceToTarget*0.75);
@@ -36,9 +37,10 @@ public class AutoScore extends OpMode {
         //(100*targetArea)/percentScreenOfTarget = screenArea
         //(3600)/percentScreenOfTarget = distanceToTarget*(distanceToTarget*0.75);
         //3600/percentScreenOfTarget =
+        return(Math.sqrt(3600/(percentScreenOfTarget*0.75)));
 
 
-        return(Percent);
+
     }
 }
 
