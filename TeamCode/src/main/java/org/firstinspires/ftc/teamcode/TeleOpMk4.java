@@ -13,7 +13,7 @@ public class TeleOpMk4 extends OpMode {
         robot.init(hardwareMap);
         leftPressed = false;
         rightPressed = false;
-        power =1;
+        power = 5;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class TeleOpMk4 extends OpMode {
             leftPressed = false;
         }
         if(gamepad2.a){
-            robot.shooters.spinUpShooter(-(power/10));
+            robot.shooters.spinUpShooter((power/10));
         }else{
             robot.shooters.spinDown();
         }

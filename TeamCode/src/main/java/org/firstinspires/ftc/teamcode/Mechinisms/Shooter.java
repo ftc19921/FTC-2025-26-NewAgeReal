@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Mechinisms;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Shooter {
@@ -14,6 +15,7 @@ public class Shooter {
         intakeMotor = hardwareMap.get(DcMotor.class,"1");
         actuatorMotor = hardwareMap.get(DcMotor.class,"2");
         shooterMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        shooterMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     public void spinUpShooter(double power){
         shooterMotor.setPower(power);

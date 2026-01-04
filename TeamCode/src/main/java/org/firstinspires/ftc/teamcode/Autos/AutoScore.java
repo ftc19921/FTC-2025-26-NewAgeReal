@@ -26,7 +26,7 @@ public class AutoScore  {
     public void loop() {
         percentScreenOfTarget = robot.limeLight.LookTa();
         distanceToTarget = getDistanceFromPercent(percentScreenOfTarget);
-    }
+    }\
     public double getDistanceFromPercent(double Percent){
         //screenArea = distanceToTarget*(distanceToTarget*0.75);
         //targetArea = 36;//Inches squared
