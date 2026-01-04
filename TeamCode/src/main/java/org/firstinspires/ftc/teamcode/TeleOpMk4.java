@@ -38,6 +38,9 @@ public class TeleOpMk4 extends OpMode {
         }
         if(gamepad2.a){
             robot.shooters.spinUpShooter((power/10));
+        }else if(gamepad2.left_trigger>0)
+        {
+            robot.shooters.spinUpShooter(-power/10);
         }else{
             robot.shooters.spinDown();
         }
