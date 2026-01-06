@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.Robot;
 @Autonomous
-public class AutoScore1_6 extends OpMode {
+public class AutoScore1_9 extends OpMode {
     boolean end;
     double percentScreenOfTarget;
     //(In inches)
@@ -22,53 +22,66 @@ public class AutoScore1_6 extends OpMode {
 
     @Override
     public void loop() {
-        percentScreenOfTarget = robot.limeLight.LookTa();
+
+
         distanceToTarget = getDistanceFromPercent(percentScreenOfTarget);
-        telemetry.addData("Distance to target: ",distanceToTarget);
-        telemetry.update();
+
+
         fireThisMany(1,0.5);
         moveBackTillTargetIsSeen(0.5);
         moveDistanceAwayFromTarget(0.5,71);
+        waitToSpin(30-getRuntime());
     }
 
     public void moveDistanceAwayFromTarget(double Power, double Distance /*in Inches*/){
         while(Distance>distanceToTarget) {
-            if (robot.limeLight.detectID() == -1) {
 
-                break;
-            } else {
-                robot.tankDrive.setDrivePowers(Power,Power);
-            }
-        }
-        while(Distance<distanceToTarget){
-            if (robot.limeLight.detectID() == -1) {
+            if (robot.limeLight.LookTx() == 0) {
 
                 break;
             } else {
                 robot.tankDrive.setDrivePowers(-Power,-Power);
             }
         }
+        while(Distance<distanceToTarget){
+
+            if (robot.limeLight.LookTx() == 0) {
+
+                break;
+            } else {
+                robot.tankDrive.setDrivePowers(Power,Power);
+            }
+        }
+        robot.tankDrive.setDrivePowers(0,0);
     }
 
     public void moveBackTillTargetIsSeen(double Power){
-        while(robot.limeLight.detectID() == -1){
+        while(robot.limeLight.LookTx() == 0){
+
             robot.tankDrive.setDrivePowers(-Power,-Power);
         }
+        robot.tankDrive.setDrivePowers(0,0);
     }
     public void faceTowardsTarget(double Power){
-        while(robot.limeLight.LookTy()>0.2){
-            if (robot.limeLight.detectID() == -1) {
+        while(robot.limeLight.LookTy() == 0){
+            robot.tankDrive.setDrivePowers(Power,-Power);
+        }
+        while(robot.limeLight.LookTy()>0){
+
+            if (robot.limeLight.LookTx() == 0) {
 
                 break;
             } else {
+
                 robot.tankDrive.setDrivePowers(Power,-Power);
             }
         }
-        while(robot.limeLight.LookTy()<-0.2){
-            if (robot.limeLight.detectID() == -1) {
+        while(robot.limeLight.LookTy()<0){
+            if (robot.limeLight.LookTx() == 0) {
 
                 break;
             } else {
+
                 robot.tankDrive.setDrivePowers(-Power,Power);
             }
         }
@@ -97,6 +110,7 @@ public class AutoScore1_6 extends OpMode {
     public void waitToSpin(double Time){
             double waitStartTime = getRuntime();
         while(getRuntime()<(waitStartTime+Time)){
+
 
         }
     }

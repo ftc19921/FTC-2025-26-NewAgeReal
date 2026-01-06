@@ -9,7 +9,7 @@ public class LimeLight {
 
     Limelight3A limelight3A;
     public void init(HardwareMap hardwareMap){
-        limelight3A = hardwareMap.get(Limelight3A.class,"LimeLight");
+        limelight3A = hardwareMap.get(Limelight3A.class,"Ethernet Device");
         limelight3A.setPollRateHz(100);
         limelight3A.start();
     }

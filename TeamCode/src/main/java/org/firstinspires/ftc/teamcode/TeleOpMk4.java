@@ -19,8 +19,10 @@ public class TeleOpMk4 extends OpMode {
 
     @Override
     public void loop() {
-
-        robot.tankDrive.setDrivePowers(gamepad1.right_stick_y-gamepad2.right_stick_y,gamepad1.left_stick_y-gamepad2.left_stick_y);
+        telemetry.addData("ID",robot.limeLight.detectID());
+        telemetry.addData("X", robot.limeLight.LookTy());
+        telemetry.addData("distance:",getDistanceFromPercent());
+        robot.tankDrive.setDrivePowers(gamepad1.left_stick_y-gamepad2.right_stick_y,gamepad1.right_stick_y-gamepad2.left_stick_y);
 
         if(gamepad2.right_bumper&&!rightPressed){
             power++;
@@ -76,5 +78,9 @@ public class TeleOpMk4 extends OpMode {
 
 
 
+    }
+    public double getDistanceFromPercent(){
+
+        return(Math.sqrt(3600/(robot.limeLight.LookTa()*0.75)));
     }
 }

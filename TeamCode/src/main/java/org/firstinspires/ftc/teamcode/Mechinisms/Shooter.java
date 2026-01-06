@@ -16,6 +16,7 @@ public class Shooter {
         actuatorMotor = hardwareMap.get(DcMotor.class,"2");
         shooterMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         shooterMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        actuatorMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
     public void spinUpShooter(double power){
         shooterMotor.setPower(power);
@@ -32,7 +33,7 @@ public class Shooter {
 
     public void outtake(){intakeMotor.setPower(-1);}
     public void fire(){
-        actuatorMotor.setPower(-1);
+        actuatorMotor.setPower(1);
     }
 
     public void stopIntaking(){
