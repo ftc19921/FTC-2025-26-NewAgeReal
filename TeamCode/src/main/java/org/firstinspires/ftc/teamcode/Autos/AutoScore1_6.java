@@ -34,7 +34,7 @@ public class AutoScore1_6 extends OpMode {
     public void MoveDistanceAwayFromTarget(double Power,double Distance /*in Inches*/){
         while(Distance>distanceToTarget) {
             if (robot.limeLight.detectID() == -1) {
-                end = true;
+
                 break;
             } else {
                 robot.tankDrive.setDrivePowers(Power,Power);
@@ -42,7 +42,7 @@ public class AutoScore1_6 extends OpMode {
         }
         while(Distance<distanceToTarget){
             if (robot.limeLight.detectID() == -1) {
-                end = true;
+
                 break;
             } else {
                 robot.tankDrive.setDrivePowers(-Power,-Power);
@@ -51,10 +51,20 @@ public class AutoScore1_6 extends OpMode {
     }
     public void faceTowardsTarget(double Power){
         while(robot.limeLight.LookTy()>0.2){
-            robot.tankDrive.setDrivePowers(Power,-Power);
+            if (robot.limeLight.detectID() == -1) {
+
+                break;
+            } else {
+                robot.tankDrive.setDrivePowers(Power,-Power);
+            }
         }
         while(robot.limeLight.LookTy()<-0.2){
-            robot.tankDrive.setDrivePowers(-Power,Power);
+            if (robot.limeLight.detectID() == -1) {
+
+                break;
+            } else {
+                robot.tankDrive.setDrivePowers(-Power,Power);
+            }
         }
     }
     public void fireThisMany(double ArtifactsToFire, double power){
