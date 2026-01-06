@@ -29,8 +29,8 @@ public class AutoScore1_6 extends OpMode {
         distanceToTarget = getDistanceFromPercent(percentScreenOfTarget);
         telemetry.addData("Distance to target: ",distanceToTarget);
         telemetry.update();
-        //fireThisMany(2,0.5);
-        //fireThisMany(2,1);
+        fireThisMany(1,0.5);
+        fireThisMany(1,1);
     }
 
     public void MoveDistanceAwayFromTarget(double Power,double Distance /*in Inches*/){
@@ -54,9 +54,9 @@ public class AutoScore1_6 extends OpMode {
     public void fireThisMany(double ArtifactsToFire, double power){
         while(ArtifactsToFire>0){
             robot.shooters.spinUpShooter(power);
-            waitToSpin(100000);
+            waitToSpin(2);
             robot.shooters.fire();
-            waitToSpin(100000);
+            waitToSpin(2);
             robot.shooters.spinUpShooter(0);
             ArtifactsToFire--;
         }
@@ -73,9 +73,9 @@ public class AutoScore1_6 extends OpMode {
     }
 
     public void waitToSpin(double Time){
+            double waitStartTime = getRuntime();
+        while(getRuntime()<(waitStartTime+Time)){
 
-        while(Time>0){
-            Time--;
         }
     }
 }
