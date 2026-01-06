@@ -28,6 +28,7 @@ public class AutoScore1_6 extends OpMode {
         telemetry.addData("Distance to target: ",distanceToTarget);
         telemetry.update();
         fireThisMany(1,0.5);
+
         MoveDistanceAwayFromTarget(0.5,71);
     }
 
@@ -47,6 +48,12 @@ public class AutoScore1_6 extends OpMode {
             } else {
                 robot.tankDrive.setDrivePowers(-Power,-Power);
             }
+        }
+    }
+
+    public void moveBackTillTargetIsSeen(double Power){
+        while(robot.limeLight.detectID() == -1){
+            robot.tankDrive.setDrivePowers(-Power,-Power);
         }
     }
     public void faceTowardsTarget(double Power){
