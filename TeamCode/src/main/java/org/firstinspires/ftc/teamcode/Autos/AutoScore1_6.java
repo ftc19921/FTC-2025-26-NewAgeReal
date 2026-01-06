@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.Autos;
 
-import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
@@ -28,11 +27,11 @@ public class AutoScore1_6 extends OpMode {
         telemetry.addData("Distance to target: ",distanceToTarget);
         telemetry.update();
         fireThisMany(1,0.5);
-
-        MoveDistanceAwayFromTarget(0.5,71);
+        moveBackTillTargetIsSeen(0.5);
+        moveDistanceAwayFromTarget(0.5,71);
     }
 
-    public void MoveDistanceAwayFromTarget(double Power,double Distance /*in Inches*/){
+    public void moveDistanceAwayFromTarget(double Power, double Distance /*in Inches*/){
         while(Distance>distanceToTarget) {
             if (robot.limeLight.detectID() == -1) {
 
