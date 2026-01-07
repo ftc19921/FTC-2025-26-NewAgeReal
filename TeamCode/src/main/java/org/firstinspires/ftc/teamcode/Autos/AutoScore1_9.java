@@ -29,7 +29,12 @@ public class AutoScore1_9 extends OpMode {
 
         fireThisMany(1,0.5);
         moveBackTillTargetIsSeen(0.5);
-        moveDistanceAwayFromTarget(0.5,71);
+        moveDistanceAwayFromTarget(0.5,58);
+        robot.tankDrive.driveUsingEncoders(2400,2400,0.4,-0.4);
+        robot.tankDrive.driveUsingEncoders(2400,2400,0.4,0.4);
+        robot.tankDrive.driveUsingEncoders(2400,2400,-0.4,-0.4);
+        faceTowardsTarget(0.4);
+        fireThisMany(2,0.65);
         waitToSpin(30-getRuntime());
     }
 

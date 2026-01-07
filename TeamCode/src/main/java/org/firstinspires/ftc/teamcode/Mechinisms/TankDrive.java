@@ -22,13 +22,13 @@ public class TankDrive {
         LeftMotor.setPower(leftPower);
     }
 
-    public void driveUsingEncoders(double DistanceRight,double DistanceLeft,double Speed){
+    public void driveUsingEncoders(double DistanceRight,double DistanceLeft,double LeftSpeed, double RightSpeed){
         while(DistanceLeft>Math.abs(LeftMotor.getCurrentPosition())||DistanceRight>Math.abs(RightMotor.getCurrentPosition())){
             if(DistanceLeft>Math.abs(LeftMotor.getCurrentPosition())){
-                LeftMotor.setPower(Speed);
+                LeftMotor.setPower(LeftSpeed);
             }
             if(DistanceRight>Math.abs(RightMotor.getCurrentPosition())){
-                RightMotor.setPower(Speed);
+                RightMotor.setPower(RightSpeed);
             }
         }
         RightMotor.setPower(0);
